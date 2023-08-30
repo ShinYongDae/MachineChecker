@@ -5,19 +5,39 @@
 
 #pragma once
 
+#define MAX_LIGHT	4
+#define MAX_CAMERA	4
+
+
 struct stInfo
 {
-	CString sMachineName;
+	CString sProgramVersion, sMachineName;
 
 	stInfo()
 	{
-		sMachineName = _T("");
+		sProgramVersion = _T(""); sMachineName = _T("");		
+	}
+};
+
+struct stDevices
+{
+	int nNumLight, nNumCamera;
+	CString sIO, sLight[MAX_LIGHT], sMotion, sCamera[MAX_CAMERA], sTrigger, s2DBarcode;
+
+	stDevices()
+	{
+		int i;
+		nNumLight = 0; nNumCamera = 0;
+		sIO = _T(""); sMotion = _T(""); sTrigger = _T(""); s2DBarcode = _T("");		
+		for (i = 0; i < MAX_LIGHT; i++) sLight[i] = _T("");
+		for (i = 0; i < MAX_CAMERA; i++) sCamera[i] = _T("");
 	}
 };
 
 struct stConfig
 {
 	stInfo Info;
+	stDevices Devices;
 };
 
 class CMachineCheckerDoc : public CDocument
@@ -39,6 +59,7 @@ public:
 	void SetPathPrevConfigFolder(CString sPath);
 	void SetNamePrevConfigFile(CString sName);
 	BOOL LoadConfig(CString sPath, CString& sData);
+	CString GetProgramVersion();
 
 // 재정의입니다.
 public:

@@ -13,6 +13,12 @@
 #include "MachineCheckerDoc.h"
 #include "MachineCheckerView.h"
 
+#include "DlgIO.h"
+#include "DlgLight.h"
+#include "DlgMotion.h"
+#include "DlgCamera1.h"
+#include "DlgCamera2.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -62,6 +68,7 @@ void CMachineCheckerView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
+	InitMenu();
 }
 
 
@@ -87,6 +94,25 @@ CMachineCheckerDoc* CMachineCheckerView::GetDocument() const // 디버그되지 않은 
 
 
 // CMachineCheckerView 메시지 처리기
+void CMachineCheckerView::InitMenu()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->m_bAutoMenuEnable = FALSE;
+	CMenu *pMenu = pFrame->GetMenu();
+	//pMenu->CheckMenuItem(ID_IO, MF_CHECKED);//MF_UNCHECKED
+
+	CMenu *pSubMenu = pMenu->GetSubMenu(1); // 0:도움말, 1:Devices
+	pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_LIGHT, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+
+
+	//pSubMenu->EnableMenuItem(ID_APP_ABOUT, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	//pSubMenu->EnableMenuItem(ID_IO, MF_GRAYED);
+	//pSubMenu->ModifyMenu(ID_IO, MF_BYPOSITION, MF_POPUP, _T("Input/Output"));
+}
 
 
 void CMachineCheckerView::OnBnClickedBtnOpen()
@@ -101,10 +127,21 @@ void CMachineCheckerView::OnBnClickedBtnOpen()
 		return;
 
 	GetDlgItem(IDC_STC_PATH)->SetWindowText(sPath);
-	CString sData;
+	CString sData, sVal;
 	if (!pDoc->LoadConfig(sPath, sData))
 		AfxMessageBox(_T("LoadConfig failed!"));
+	sVal.Format(_T("Machine Checker Version : %s"), pDoc->GetProgramVersion());
+	pFrame->SetWindowTextW(sVal);
 	GetDlgItem(IDC_EDIT_CONFIG)->SetWindowText(sData);
+
+	CMenu *pMenu = pFrame->GetMenu();
+	CMenu *pSubMenu = pMenu->GetSubMenu(1); // 0:도움말, 1:Devices
+	pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_ENABLED);
+	pSubMenu->EnableMenuItem(ID_LIGHT, MF_BYCOMMAND | MF_ENABLED);
+	pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_ENABLED);
+	pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_ENABLED);
+	pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_ENABLED);
+
 }
 
 CString CMachineCheckerView::FileBrowse()
@@ -166,4 +203,49 @@ CString CMachineCheckerView::FileBrowse()
 	}
 
 	return sPath;
+}
+
+void CMachineCheckerView::DispIO()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgIO Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
+}
+
+void CMachineCheckerView::DispLight()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgLight Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
+}
+
+void CMachineCheckerView::DispMotion()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgMotion Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
+}
+
+void CMachineCheckerView::DispCamera1()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgCamera1 Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
+}
+
+void CMachineCheckerView::DispCamera2()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgCamera2 Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
 }

@@ -37,6 +37,12 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
 
+public:
+	afx_msg void OnIo();
+	afx_msg void OnLight();
+	afx_msg void OnMotion();
+	afx_msg void OnCamera1();
+	afx_msg void OnCamera2();
 };
 
 

@@ -6,6 +6,7 @@
 #include "MachineChecker.h"
 
 #include "MainFrm.h"
+#include "MachineCheckerView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -17,6 +18,11 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_COMMAND(ID_IO, &CMainFrame::OnIo)
+	ON_COMMAND(ID_LIGHT, &CMainFrame::OnLight)
+	ON_COMMAND(ID_MOTION, &CMainFrame::OnMotion)
+	ON_COMMAND(ID_CAMERA1, &CMainFrame::OnCamera1)
+	ON_COMMAND(ID_CAMERA2, &CMainFrame::OnCamera2)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -49,7 +55,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // 만들지 못했습니다.
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
-
+	
 	return 0;
 }
 
@@ -80,3 +86,43 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame 메시지 처리기
 
+
+void CMainFrame::OnIo()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispIO();
+}
+
+void CMainFrame::OnLight()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispLight();
+}
+
+void CMainFrame::OnMotion()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispMotion();
+}
+
+void CMainFrame::OnCamera1()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispCamera1();
+}
+
+void CMainFrame::OnCamera2()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispCamera2();
+}

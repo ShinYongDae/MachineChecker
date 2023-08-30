@@ -6,16 +6,32 @@
 #define IDD_MACHINECHECKER_FORM         101
 #define IDR_MAINFRAME                   128
 #define IDR_MachineCheckerTYPE          130
+#define IDD_DLG_IO                      311
+#define IDD_DIALOG1                     313
+#define IDD_DLG_LIGHT                   313
+#define IDD_DIALOG2                     315
+#define IDD_DLG_MOTION                  315
+#define IDD_DLG_CAMERA1                 316
+#define IDD_DIALOG4                     317
+#define IDD_DLG_CAMERA2                 317
 #define IDC_BTN_OPEN                    1000
 #define IDC_STC_PATH                    1001
 #define IDC_EDIT_CONFIG                 1002
+#define ID_Menu                         32771
+#define ID_IO                           32772
+#define Light                           32773
+#define ID_LIGHT                        32774
+#define ID_DEVICES_MOTION               32775
+#define ID_MOTION                       32776
+#define ID_CAMERA1                      32777
+#define ID_CAMERA2                      32778
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        311
-#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_RESOURCE_VALUE        321
+#define _APS_NEXT_COMMAND_VALUE         32779
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

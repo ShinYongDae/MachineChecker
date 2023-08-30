@@ -181,6 +181,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DlgCamera1.h" />
+    <ClInclude Include="DlgCamera2.h" />
+    <ClInclude Include="DlgIO.h" />
+    <ClInclude Include="DlgLight.h" />
+    <ClInclude Include="DlgMotion.h" />
     <ClInclude Include="MachineChecker.h" />
     <ClInclude Include="MachineCheckerDoc.h" />
     <ClInclude Include="MachineCheckerView.h" />
@@ -190,6 +195,11 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DlgCamera1.cpp" />
+    <ClCompile Include="DlgCamera2.cpp" />
+    <ClCompile Include="DlgIO.cpp" />
+    <ClCompile Include="DlgLight.cpp" />
+    <ClCompile Include="DlgMotion.cpp" />
     <ClCompile Include="MachineChecker.cpp" />
     <ClCompile Include="MachineCheckerDoc.cpp" />
     <ClCompile Include="MachineCheckerView.cpp" />
