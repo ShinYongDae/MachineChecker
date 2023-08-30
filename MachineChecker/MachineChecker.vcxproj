@@ -181,6 +181,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Devices\Rs232.h" />
     <ClInclude Include="DlgCamera1.h" />
     <ClInclude Include="DlgCamera2.h" />
     <ClInclude Include="DlgIO.h" />

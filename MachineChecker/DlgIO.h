@@ -1,11 +1,13 @@
 #pragma once
 
-
 // CDlgIO 대화 상자입니다.
 
 class CDlgIO : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgIO)
+
+	void Init();
+	void Close();
 
 public:
 	CDlgIO(CWnd* pParent = NULL);   // 표준 생성자입니다.

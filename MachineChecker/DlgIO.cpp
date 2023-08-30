@@ -19,6 +19,7 @@ CDlgIO::CDlgIO(CWnd* pParent /*=NULL*/)
 
 CDlgIO::~CDlgIO()
 {
+	Close();
 }
 
 void CDlgIO::DoDataExchange(CDataExchange* pDX)
@@ -41,6 +42,15 @@ BOOL CDlgIO::OnInitDialog()
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
 	::SetWindowPos(this->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 
+	Init();
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
+}
+
+void CDlgIO::Init()
+{
+}
+
+void CDlgIO::Close()
+{
 }
