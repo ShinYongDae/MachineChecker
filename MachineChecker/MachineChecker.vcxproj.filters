@@ -48,17 +48,17 @@
     <ClInclude Include="DlgLight.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="DlgCamera1.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DlgCamera2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="DlgMotion.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Devices\Rs232.h">
       <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCamera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCameraBasler1CCD.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,13 +83,13 @@
     <ClCompile Include="DlgLight.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DlgCamera1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="DlgCamera2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="DlgMotion.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCamera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCameraBasler1CCD.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

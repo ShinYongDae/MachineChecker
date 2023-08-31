@@ -9,6 +9,7 @@
 class CMachineCheckerView : public CFormView
 {
 	void InitMenu();
+	void SetMenu();
 	CString FileBrowse();
 
 protected: // serialization에서만 만들어집니다.
@@ -27,7 +28,8 @@ public:
 // 작업입니다.
 public:
 	void DispIO();
-	void DispLight();
+	void DispLight1();
+	void DispLight2();
 	void DispMotion();
 	void DispCamera1();
 	void DispCamera2();

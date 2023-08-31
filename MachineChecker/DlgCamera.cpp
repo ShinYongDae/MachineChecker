@@ -1,40 +1,40 @@
-// DlgCamera1.cpp : 구현 파일입니다.
+// DlgCamera.cpp : 구현 파일입니다.
 //
 
 #include "stdafx.h"
 #include "MachineChecker.h"
-#include "DlgCamera1.h"
+#include "DlgCamera.h"
 #include "afxdialogex.h"
 
 
-// CDlgCamera1 대화 상자입니다.
+// CDlgCamera 대화 상자입니다.
 
-IMPLEMENT_DYNAMIC(CDlgCamera1, CDialog)
+IMPLEMENT_DYNAMIC(CDlgCamera, CDialog)
 
-CDlgCamera1::CDlgCamera1(CWnd* pParent /*=NULL*/)
+CDlgCamera::CDlgCamera(CWnd* pParent /*=NULL*/)
 	: CDialog(IDD_DLG_CAMERA1, pParent)
 {
 
 }
 
-CDlgCamera1::~CDlgCamera1()
+CDlgCamera::~CDlgCamera()
 {
 }
 
-void CDlgCamera1::DoDataExchange(CDataExchange* pDX)
+void CDlgCamera::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CDlgCamera1, CDialog)
+BEGIN_MESSAGE_MAP(CDlgCamera, CDialog)
 END_MESSAGE_MAP()
 
 
-// CDlgCamera1 메시지 처리기입니다.
+// CDlgCamera 메시지 처리기입니다.
 
 
-BOOL CDlgCamera1::OnInitDialog()
+BOOL CDlgCamera::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 

@@ -87,7 +87,8 @@ BEGIN
     POPUP "Devices"
     BEGIN
         MENUITEM "IO",                          ID_IO
-        MENUITEM "Light",                       ID_LIGHT
+        MENUITEM "Light1",                      ID_LIGHT1
+        MENUITEM "Light2",                      32780
         MENUITEM "Motion",                      ID_MOTION
         MENUITEM "Camera1",                     32777
         MENUITEM "Camera2",                     32778
@@ -129,7 +130,7 @@ CAPTION "MachineChecker 정보"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
-    LTEXT           "MachineChecker, 버전 0.0.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "MachineChecker, 버전 0.0.0",IDC_STATIC_PROGRAM_VERSION,42,14,114,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2023.08.29",IDC_STATIC,42,26,114,8
     DEFPUSHBUTTON   "확인",IDOK,113,41,50,14,WS_GROUP
 END
@@ -181,9 +182,9 @@ BEGIN
     PUSHBUTTON      "취소",IDCANCEL,252,155,50,14
 END
 
-IDD_DLG_CAMERA2 DIALOGEX 0, 0, 309, 176
+IDD_DLG_CAMERA_BASLER_1CCD DIALOGEX 0, 0, 309, 176
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Camera2"
+CAPTION "Camera Basler 1CCD"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "확인",IDOK,198,155,50,14
@@ -286,7 +287,7 @@ BEGIN
         BOTTOMMARGIN, 169
     END
 
-    IDD_DLG_CAMERA2, DIALOG
+    IDD_DLG_CAMERA_BASLER_1CCD, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 302
@@ -327,7 +328,7 @@ BEGIN
     0
 END
 
-IDD_DLG_CAMERA2 AFX_DIALOG_LAYOUT
+IDD_DLG_CAMERA_BASLER_1CCD AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

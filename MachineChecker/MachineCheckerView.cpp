@@ -16,8 +16,8 @@
 #include "DlgIO.h"
 #include "DlgLight.h"
 #include "DlgMotion.h"
-#include "DlgCamera1.h"
-#include "DlgCamera2.h"
+#include "DlgCamera.h"
+#include "DlgCameraBasler1CCD.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -31,10 +31,6 @@ IMPLEMENT_DYNCREATE(CMachineCheckerView, CFormView)
 BEGIN_MESSAGE_MAP(CMachineCheckerView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_OPEN, &CMachineCheckerView::OnBnClickedBtnOpen)
 END_MESSAGE_MAP()
-
-//CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
-//CGvisLcmView *pView = (CGvisLcmView *)pFrame->GetActiveView();
-//CGvisLcmDoc *pDoc = (CGvisLcmDoc *)pFrame->GetActiveDocument();
 
 // CMachineCheckerView 생성/소멸
 
@@ -103,7 +99,8 @@ void CMachineCheckerView::InitMenu()
 
 	CMenu *pSubMenu = pMenu->GetSubMenu(1); // 0:도움말, 1:Devices
 	pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
-	pSubMenu->EnableMenuItem(ID_LIGHT, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_LIGHT1, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	pSubMenu->EnableMenuItem(ID_LIGHT2, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
 	pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
 	pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
 	pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
@@ -114,6 +111,79 @@ void CMachineCheckerView::InitMenu()
 	//pSubMenu->ModifyMenu(ID_IO, MF_BYPOSITION, MF_POPUP, _T("Input/Output"));
 }
 
+void CMachineCheckerView::SetMenu()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
+	CMenu *pMenu = pFrame->GetMenu();
+	CMenu *pSubMenu = pMenu->GetSubMenu(1); // 0:도움말, 1:Devices
+
+	if (!pDoc->GetDeviceNameIO().IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_IO, MF_BYCOMMAND, ID_IO, pDoc->GetDeviceNameIO());
+		pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_IO, MF_BYCOMMAND, ID_IO, _T("IO"));
+		pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+
+	if (!pDoc->GetDeviceNameLight(0).IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_LIGHT1, MF_BYCOMMAND, ID_LIGHT1, pDoc->GetDeviceNameLight(0));
+		pSubMenu->EnableMenuItem(ID_LIGHT1, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_LIGHT1, MF_BYCOMMAND, ID_LIGHT1, _T("Light1"));
+		pSubMenu->EnableMenuItem(ID_LIGHT1, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+
+	if (!pDoc->GetDeviceNameLight(1).IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_LIGHT2, MF_BYCOMMAND, ID_LIGHT2, pDoc->GetDeviceNameLight(1));
+		pSubMenu->EnableMenuItem(ID_LIGHT2, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_LIGHT2, MF_BYCOMMAND, ID_LIGHT2, _T("Light2"));
+		pSubMenu->EnableMenuItem(ID_LIGHT2, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+
+	if (!pDoc->GetDeviceNameMotion().IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_MOTION, MF_BYCOMMAND, ID_MOTION, pDoc->GetDeviceNameMotion());
+		pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_MOTION, MF_BYCOMMAND, ID_MOTION, _T("Motion"));
+		pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+
+	if (!pDoc->GetDeviceNameCamera(0).IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_CAMERA1, MF_BYCOMMAND, ID_CAMERA1, pDoc->GetDeviceNameCamera(0));
+		pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_CAMERA1, MF_BYCOMMAND, ID_CAMERA1, _T("Camera1"));
+		pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+
+	if (!pDoc->GetDeviceNameCamera(1).IsEmpty())
+	{
+		pMenu->ModifyMenu(ID_CAMERA2, MF_BYCOMMAND, ID_CAMERA2, pDoc->GetDeviceNameCamera(1));
+		pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_ENABLED);
+	}
+	else
+	{
+		pMenu->ModifyMenu(ID_CAMERA2, MF_BYCOMMAND, ID_CAMERA2, _T("Camera2"));
+		pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
+	}
+}
 
 void CMachineCheckerView::OnBnClickedBtnOpen()
 {
@@ -127,21 +197,11 @@ void CMachineCheckerView::OnBnClickedBtnOpen()
 		return;
 
 	GetDlgItem(IDC_STC_PATH)->SetWindowText(sPath);
-	CString sData, sVal;
+	CString sData;
 	if (!pDoc->LoadConfig(sPath, sData))
 		AfxMessageBox(_T("LoadConfig failed!"));
-	sVal.Format(_T("Machine Checker Version : %s"), pDoc->GetProgramVersion());
-	pFrame->SetWindowTextW(sVal);
 	GetDlgItem(IDC_EDIT_CONFIG)->SetWindowText(sData);
-
-	CMenu *pMenu = pFrame->GetMenu();
-	CMenu *pSubMenu = pMenu->GetSubMenu(1); // 0:도움말, 1:Devices
-	pSubMenu->EnableMenuItem(ID_IO, MF_BYCOMMAND | MF_ENABLED);
-	pSubMenu->EnableMenuItem(ID_LIGHT, MF_BYCOMMAND | MF_ENABLED);
-	pSubMenu->EnableMenuItem(ID_MOTION, MF_BYCOMMAND | MF_ENABLED);
-	pSubMenu->EnableMenuItem(ID_CAMERA1, MF_BYCOMMAND | MF_ENABLED);
-	pSubMenu->EnableMenuItem(ID_CAMERA2, MF_BYCOMMAND | MF_ENABLED);
-
+	SetMenu();
 }
 
 CString CMachineCheckerView::FileBrowse()
@@ -214,7 +274,16 @@ void CMachineCheckerView::DispIO()
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
-void CMachineCheckerView::DispLight()
+void CMachineCheckerView::DispLight1()
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	pFrame->ShowWindow(SW_MINIMIZE);
+	CDlgLight Dlg;
+	Dlg.DoModal();
+	pFrame->ShowWindow(SW_NORMAL);
+}
+
+void CMachineCheckerView::DispLight2()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
@@ -236,7 +305,7 @@ void CMachineCheckerView::DispCamera1()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgCamera1 Dlg;
+	CDlgCamera Dlg;
 	Dlg.DoModal();
 	pFrame->ShowWindow(SW_NORMAL);
 }
@@ -245,7 +314,7 @@ void CMachineCheckerView::DispCamera2()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgCamera2 Dlg;
+	CDlgCameraBasler1CCD Dlg;
 	Dlg.DoModal();
 	pFrame->ShowWindow(SW_NORMAL);
 }

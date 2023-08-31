@@ -39,7 +39,8 @@ protected:
 
 public:
 	afx_msg void OnIo();
-	afx_msg void OnLight();
+	afx_msg void OnLight1();
+	afx_msg void OnLight2();
 	afx_msg void OnMotion();
 	afx_msg void OnCamera1();
 	afx_msg void OnCamera2();

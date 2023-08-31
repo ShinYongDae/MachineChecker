@@ -19,7 +19,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_IO, &CMainFrame::OnIo)
-	ON_COMMAND(ID_LIGHT, &CMainFrame::OnLight)
+	ON_COMMAND(ID_LIGHT1, &CMainFrame::OnLight1)
+	ON_COMMAND(ID_LIGHT2, &CMainFrame::OnLight2)
 	ON_COMMAND(ID_MOTION, &CMainFrame::OnMotion)
 	ON_COMMAND(ID_CAMERA1, &CMainFrame::OnCamera1)
 	ON_COMMAND(ID_CAMERA2, &CMainFrame::OnCamera2)
@@ -95,12 +96,20 @@ void CMainFrame::OnIo()
 	pView->DispIO();
 }
 
-void CMainFrame::OnLight()
+void CMainFrame::OnLight1()
 {
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
-	pView->DispLight();
+	pView->DispLight1();
+}
+
+void CMainFrame::OnLight2()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerView *pView = (CMachineCheckerView*)pFrame->GetActiveView();
+	pView->DispLight2();
 }
 
 void CMainFrame::OnMotion()

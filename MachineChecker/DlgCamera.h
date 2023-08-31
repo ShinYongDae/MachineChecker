@@ -1,15 +1,15 @@
 #pragma once
 
 
-// CDlgCamera1 대화 상자입니다.
+// CDlgCamera 대화 상자입니다.
 
-class CDlgCamera1 : public CDialog
+class CDlgCamera : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgCamera1)
+	DECLARE_DYNAMIC(CDlgCamera)
 
 public:
-	CDlgCamera1(CWnd* pParent = NULL);   // 표준 생성자입니다.
-	virtual ~CDlgCamera1();
+	CDlgCamera(CWnd* pParent = NULL);   // 표준 생성자입니다.
+	virtual ~CDlgCamera();
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME

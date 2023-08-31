@@ -9,6 +9,7 @@
 
 #include "resource.h"       // 주 기호입니다.
 
+#define PROGRAM_VERSION		_T("0.0.0")
 
 // CMachineCheckerApp:
 // 이 클래스의 구현에 대해서는 MachineChecker.cpp을 참조하십시오.

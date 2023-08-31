@@ -11,11 +11,11 @@
 
 struct stInfo
 {
-	CString sProgramVersion, sMachineName;
+	CString sProgramVersion, sMachineName, sConfigFileVersion;
 
 	stInfo()
 	{
-		sProgramVersion = _T(""); sMachineName = _T("");		
+		sProgramVersion = _T(""); sMachineName = _T(""); sConfigFileVersion = _T("");
 	}
 };
 
@@ -58,8 +58,17 @@ public:
 	CString GetNamePrevConfigFile();
 	void SetPathPrevConfigFolder(CString sPath);
 	void SetNamePrevConfigFile(CString sName);
+
 	BOOL LoadConfig(CString sPath, CString& sData);
 	CString GetProgramVersion();
+	CString GetConfigFileVersion();
+	CString GetMachineName();
+	CString GetDeviceNameIO();
+	CString GetDeviceNameLight(int nIndex);
+	CString GetDeviceNameMotion();
+	CString GetDeviceNameCamera(int nIndex);
+	CString GetDeviceNameTrigger();
+	CString GetDeviceName2DBarcode();
 
 // 재정의입니다.
 public:
