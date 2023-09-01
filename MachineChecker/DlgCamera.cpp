@@ -12,7 +12,7 @@
 IMPLEMENT_DYNAMIC(CDlgCamera, CDialog)
 
 CDlgCamera::CDlgCamera(CWnd* pParent /*=NULL*/)
-	: CDialog(IDD_DLG_CAMERA1, pParent)
+	: CDialog(IDD_DLG_CAMERA, pParent)
 {
 
 }

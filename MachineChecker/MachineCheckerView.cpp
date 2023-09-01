@@ -18,6 +18,7 @@
 #include "DlgMotion.h"
 #include "DlgCamera.h"
 #include "DlgCameraBasler1CCD.h"
+#include "DlgLightPlusTeck4Ch.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -278,8 +279,7 @@ void CMachineCheckerView::DispLight1()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgLight Dlg;
-	Dlg.DoModal();
+	ShowDlgLight(0);
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
@@ -287,8 +287,7 @@ void CMachineCheckerView::DispLight2()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgLight Dlg;
-	Dlg.DoModal();
+	ShowDlgLight(1);
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
@@ -318,3 +317,46 @@ void CMachineCheckerView::DispCamera2()
 	Dlg.DoModal();
 	pFrame->ShowWindow(SW_NORMAL);
 }
+
+void CMachineCheckerView::ShowDlgIO()
+{
+
+}
+
+void CMachineCheckerView::ShowDlgLight(int nIndex)
+{
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
+
+	if (pDoc->GetDeviceNameLight(nIndex).MakeLower() == _T("light"))
+	{
+		CDlgLight Dlg;
+		Dlg.DoModal();
+	}
+	else if (pDoc->GetDeviceNameLight(nIndex).MakeLower() == _T("plustek-4ch"))
+	{
+		CDlgLightPlusTeck4Ch Dlg;
+		Dlg.DoModal();
+	}
+}
+
+void CMachineCheckerView::ShowDlgMotion()
+{
+
+}
+
+void CMachineCheckerView::ShowDlgCamera(int nIndex)
+{
+
+}
+
+void CMachineCheckerView::ShowDlgTrigger()
+{
+
+}
+
+void CMachineCheckerView::ShowDlg2DBarcode()
+{
+
+}
+

@@ -12,6 +12,13 @@ class CMachineCheckerView : public CFormView
 	void SetMenu();
 	CString FileBrowse();
 
+	void ShowDlgIO();
+	void ShowDlgLight(int nIndex);
+	void ShowDlgMotion();
+	void ShowDlgCamera(int nIndex);
+	void ShowDlgTrigger();
+	void ShowDlg2DBarcode();
+
 protected: // serialization에서만 만들어집니다.
 	CMachineCheckerView();
 	DECLARE_DYNCREATE(CMachineCheckerView)

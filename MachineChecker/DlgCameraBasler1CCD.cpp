@@ -12,7 +12,7 @@
 IMPLEMENT_DYNAMIC(CDlgCameraBasler1CCD, CDialog)
 
 CDlgCameraBasler1CCD::CDlgCameraBasler1CCD(CWnd* pParent /*=NULL*/)
-	: CDialog(IDD_DLG_CAMERA2, pParent)
+	: CDialog(IDD_DLG_CAMERA_BASLER_1CCD, pParent)
 {
 
 }

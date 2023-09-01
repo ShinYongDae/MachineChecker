@@ -60,6 +60,9 @@
     <ClInclude Include="DlgCameraBasler1CCD.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DlgLightPlusTeck4Ch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MachineChecker.cpp">
@@ -90,6 +93,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DlgCameraBasler1CCD.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLightPlusTeck4Ch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
