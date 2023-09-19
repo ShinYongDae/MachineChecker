@@ -14,11 +14,18 @@
 #include "MachineCheckerView.h"
 
 #include "DlgIO.h"
+#include "DlgIoAgn9386.h"
+
 #include "DlgLight.h"
+#include "DlgLightPlusTeck4Ch.h"
+#include "DlgLightPlusTeck8Ch.h"
+
 #include "DlgMotion.h"
+#include "DlgMotionEtherCat.h"
+
 #include "DlgCamera.h"
 #include "DlgCameraBasler1CCD.h"
-#include "DlgLightPlusTeck4Ch.h"
+#include "DlgCameraViewWorks12k.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -270,8 +277,7 @@ void CMachineCheckerView::DispIO()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgIO Dlg;
-	Dlg.DoModal();
+	ShowDlgIO();
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
@@ -295,8 +301,7 @@ void CMachineCheckerView::DispMotion()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgMotion Dlg;
-	Dlg.DoModal();
+	ShowDlgMotion();
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
@@ -304,8 +309,7 @@ void CMachineCheckerView::DispCamera1()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgCamera Dlg;
-	Dlg.DoModal();
+	ShowDlgCamera(0);
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
@@ -313,14 +317,25 @@ void CMachineCheckerView::DispCamera2()
 {
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	pFrame->ShowWindow(SW_MINIMIZE);
-	CDlgCameraBasler1CCD Dlg;
-	Dlg.DoModal();
+	ShowDlgCamera(1);
 	pFrame->ShowWindow(SW_NORMAL);
 }
 
 void CMachineCheckerView::ShowDlgIO()
 {
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
 
+	if (pDoc->GetDeviceNameIO().MakeLower() == _T("io"))
+	{
+		CDlgIO Dlg;
+		Dlg.DoModal();
+	}
+	else if (pDoc->GetDeviceNameIO().MakeLower() == _T("ethercat io agn-9386"))
+	{
+		CDlgIoAgn9386 Dlg;
+		Dlg.DoModal();
+	}
 }
 
 void CMachineCheckerView::ShowDlgLight(int nIndex)
@@ -338,16 +353,50 @@ void CMachineCheckerView::ShowDlgLight(int nIndex)
 		CDlgLightPlusTeck4Ch Dlg;
 		Dlg.DoModal();
 	}
+	else if (pDoc->GetDeviceNameLight(nIndex).MakeLower() == _T("plustek-8ch"))
+	{
+		CDlgLightPlusTeck8Ch Dlg;
+		Dlg.DoModal();
+	}
 }
 
 void CMachineCheckerView::ShowDlgMotion()
 {
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
 
+	if (pDoc->GetDeviceNameMotion().MakeLower() == _T("motiom"))
+	{
+		CDlgMotion Dlg;
+		Dlg.DoModal();
+	}
+	else if (pDoc->GetDeviceNameMotion().MakeLower() == _T("ethercat motion"))
+	{
+		CDlgMotionEtherCat Dlg;
+		Dlg.DoModal();
+	}
 }
 
 void CMachineCheckerView::ShowDlgCamera(int nIndex)
 {
+	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
+	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
 
+	if (pDoc->GetDeviceNameCamera(nIndex).MakeLower() == _T("camera"))
+	{
+		CDlgCamera Dlg;
+		Dlg.DoModal();
+	}
+	else if (pDoc->GetDeviceNameCamera(nIndex).MakeLower() == _T("viewworks 12k linescan camera"))
+	{
+		CDlgCameraViewWorks12k Dlg;
+		Dlg.DoModal();
+	}
+	else if (pDoc->GetDeviceNameCamera(nIndex).MakeLower() == _T("basler 1ccd area camera"))
+	{
+		CDlgCameraBasler1CCD Dlg;
+		Dlg.DoModal();
+	}
 }
 
 void CMachineCheckerView::ShowDlgTrigger()

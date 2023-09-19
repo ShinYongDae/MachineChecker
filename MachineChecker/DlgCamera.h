@@ -7,6 +7,9 @@ class CDlgCamera : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgCamera)
 
+	void Init();
+	void Close();
+
 public:
 	CDlgCamera(CWnd* pParent = NULL);   // 표준 생성자입니다.
 	virtual ~CDlgCamera();

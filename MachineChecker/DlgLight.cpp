@@ -52,6 +52,7 @@ BOOL CDlgLight::OnInitDialog()
 
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
 	::SetWindowPos(this->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+	SetForegroundWindow();
 
 	Init();
 	//Set(0, 255);

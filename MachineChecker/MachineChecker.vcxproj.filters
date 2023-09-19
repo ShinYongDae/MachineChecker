@@ -63,6 +63,18 @@
     <ClInclude Include="DlgLightPlusTeck4Ch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DlgLightPlusTeck8Ch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgIoAgn9386.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMotionEtherCat.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCameraViewWorks12k.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MachineChecker.cpp">
@@ -96,6 +108,18 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DlgLightPlusTeck4Ch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLightPlusTeck8Ch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgIoAgn9386.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMotionEtherCat.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCameraViewWorks12k.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

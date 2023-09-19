@@ -184,10 +184,14 @@
     <ClInclude Include="Devices\Rs232.h" />
     <ClInclude Include="DlgCamera.h" />
     <ClInclude Include="DlgCameraBasler1CCD.h" />
+    <ClInclude Include="DlgCameraViewWorks12k.h" />
     <ClInclude Include="DlgIO.h" />
+    <ClInclude Include="DlgIoAgn9386.h" />
     <ClInclude Include="DlgLight.h" />
     <ClInclude Include="DlgLightPlusTeck4Ch.h" />
+    <ClInclude Include="DlgLightPlusTeck8Ch.h" />
     <ClInclude Include="DlgMotion.h" />
+    <ClInclude Include="DlgMotionEtherCat.h" />
     <ClInclude Include="MachineChecker.h" />
     <ClInclude Include="MachineCheckerDoc.h" />
     <ClInclude Include="MachineCheckerView.h" />
@@ -199,10 +203,14 @@
   <ItemGroup>
     <ClCompile Include="DlgCamera.cpp" />
     <ClCompile Include="DlgCameraBasler1CCD.cpp" />
+    <ClCompile Include="DlgCameraViewWorks12k.cpp" />
     <ClCompile Include="DlgIO.cpp" />
+    <ClCompile Include="DlgIoAgn9386.cpp" />
     <ClCompile Include="DlgLight.cpp" />
     <ClCompile Include="DlgLightPlusTeck4Ch.cpp" />
+    <ClCompile Include="DlgLightPlusTeck8Ch.cpp" />
     <ClCompile Include="DlgMotion.cpp" />
+    <ClCompile Include="DlgMotionEtherCat.cpp" />
     <ClCompile Include="MachineChecker.cpp" />
     <ClCompile Include="MachineCheckerDoc.cpp" />
     <ClCompile Include="MachineCheckerView.cpp" />

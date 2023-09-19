@@ -1,22 +1,22 @@
 #pragma once
 
 
-// CDlgMotion 대화 상자입니다.
+// CDlgMotionEtherCat 대화 상자입니다.
 
-class CDlgMotion : public CDialog
+class CDlgMotionEtherCat : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgMotion)
+	DECLARE_DYNAMIC(CDlgMotionEtherCat)
 
 	void Init();
 	void Close();
 
 public:
-	CDlgMotion(CWnd* pParent = NULL);   // 표준 생성자입니다.
-	virtual ~CDlgMotion();
+	CDlgMotionEtherCat(CWnd* pParent = NULL);   // 표준 생성자입니다.
+	virtual ~CDlgMotionEtherCat();
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_DLG_MOTION };
+	enum { IDD = IDD_DLG_MOTION_ETHERCAT };
 #endif
 
 protected:
