@@ -6,6 +6,7 @@
 #include "DlgLight.h"
 #include "afxdialogex.h"
 
+#pragma comment (lib, "Devices/RS232DLL.lib")
 
 // CDlgLight 대화 상자입니다.
 

@@ -365,7 +365,7 @@ void CMachineCheckerView::ShowDlgMotion()
 	CMainFrame *pFrame = (CMainFrame *)AfxGetMainWnd();
 	CMachineCheckerDoc *pDoc = (CMachineCheckerDoc*)pFrame->GetActiveDocument();
 
-	if (pDoc->GetDeviceNameMotion().MakeLower() == _T("motiom"))
+	if (pDoc->GetDeviceNameMotion().MakeLower() == _T("motion"))
 	{
 		CDlgMotion Dlg;
 		Dlg.DoModal();

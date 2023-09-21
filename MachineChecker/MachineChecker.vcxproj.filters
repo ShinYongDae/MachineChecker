@@ -75,6 +75,18 @@
     <ClInclude Include="DlgCameraViewWorks12k.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Devices\EtherCat.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices\NMC.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices\NmcAxis.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices\NmcDevice.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MachineChecker.cpp">

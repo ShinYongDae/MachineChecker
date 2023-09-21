@@ -1,11 +1,16 @@
 #pragma once
 
+#include "Devices/EtherCat.h"
+
+enum OnOffAction { OFF, ON };
 
 // CDlgMotionEtherCat 대화 상자입니다.
 
 class CDlgMotionEtherCat : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgMotionEtherCat)
+
+	CEtherCat *m_pEtherCat;
 
 	void Init();
 	void Close();
@@ -25,4 +30,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedCheck1();
+	afx_msg void OnBnClickedCheck2();
+	afx_msg void OnBnClickedCheck3();
+	afx_msg void OnBnClickedCheck4();
 };

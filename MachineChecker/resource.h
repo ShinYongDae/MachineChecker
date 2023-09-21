@@ -20,7 +20,6 @@
 #define IDD_DLG_LIGHT_PLUSTEK_8CH       322
 #define IDD_DLG_IO_AGN_9386             323
 #define IDD_DLG_MOTION_ETHERCAT         324
-#define IDD_DLG_CAMERA3                 325
 #define IDD_DLG_CAMERA_VIEWWORKS_12K    325
 #define IDC_BTN_OPEN                    1000
 #define IDC_STC_PATH                    1001

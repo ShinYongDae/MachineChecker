@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Devices/RS232.h"
+
 
 // CDlgLightPlusTeck4Ch 대화 상자입니다.
 

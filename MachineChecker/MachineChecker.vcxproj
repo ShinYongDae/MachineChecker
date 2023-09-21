@@ -181,6 +181,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Devices\EtherCat.h" />
+    <ClInclude Include="Devices\NMC.h" />
+    <ClInclude Include="Devices\NmcAxis.h" />
+    <ClInclude Include="Devices\NmcDevice.h" />
     <ClInclude Include="Devices\Rs232.h" />
     <ClInclude Include="DlgCamera.h" />
     <ClInclude Include="DlgCameraBasler1CCD.h" />

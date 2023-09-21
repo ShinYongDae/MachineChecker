@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Devices/RS232.h"
-#pragma comment (lib, "Devices/RS232DLL.lib")
 
 #define MAX_LIGHT_CH	4
 
