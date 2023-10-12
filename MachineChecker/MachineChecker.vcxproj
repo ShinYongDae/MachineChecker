@@ -111,7 +111,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -181,11 +181,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Devices\BufferControl.h" />
     <ClInclude Include="Devices\EtherCat.h" />
+    <ClInclude Include="Devices\MotionParam.h" />
+    <ClInclude Include="Devices\MyFileErrMap.h" />
     <ClInclude Include="Devices\NMC.h" />
     <ClInclude Include="Devices\NmcAxis.h" />
     <ClInclude Include="Devices\NmcDevice.h" />
+    <ClInclude Include="Devices\NMC_Motion.h" />
     <ClInclude Include="Devices\Rs232.h" />
+    <ClInclude Include="Devices\ThreadTask.h" />
     <ClInclude Include="DlgCamera.h" />
     <ClInclude Include="DlgCameraBasler1CCD.h" />
     <ClInclude Include="DlgCameraViewWorks12k.h" />
@@ -205,6 +210,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Devices\BufferControl.cpp" />
+    <ClCompile Include="Devices\EtherCat.cpp" />
+    <ClCompile Include="Devices\MyFileErrMap.cpp" />
+    <ClCompile Include="Devices\NmcAxis.cpp" />
+    <ClCompile Include="Devices\NmcDevice.cpp" />
+    <ClCompile Include="Devices\ThreadTask.cpp" />
     <ClCompile Include="DlgCamera.cpp" />
     <ClCompile Include="DlgCameraBasler1CCD.cpp" />
     <ClCompile Include="DlgCameraViewWorks12k.cpp" />

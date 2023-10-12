@@ -6,7 +6,7 @@
 #include "DlgMotionEtherCat.h"
 #include "afxdialogex.h"
 
-#pragma comment (lib, "Devices/EtherCatDLL.lib")
+//#pragma comment (lib, "Devices/EtherCatDLL.lib")
 
 // CDlgMotionEtherCat 대화 상자입니다.
 

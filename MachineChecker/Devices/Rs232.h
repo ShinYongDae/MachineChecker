@@ -29,7 +29,7 @@
 // CRs232 window
 
 
-class AFX_EXT_CLASS CRs232
+class CRs232
 {
 	//DECLARE_DYNCREATE( CRs232 )
 

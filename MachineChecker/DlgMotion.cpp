@@ -6,7 +6,7 @@
 #include "DlgMotion.h"
 #include "afxdialogex.h"
 
-#pragma comment (lib, "Devices/EtherCatDLL.lib")
+//#pragma comment (lib, "Devices/EtherCatDLL.lib")
 
 #include "MainFrm.h"
 #include "MachineCheckerDoc.h"
@@ -19,7 +19,7 @@ IMPLEMENT_DYNAMIC(CDlgMotion, CDialog)
 CDlgMotion::CDlgMotion(CWnd* pParent /*=NULL*/)
 	: CDialog(IDD_DLG_MOTION, pParent)
 {
-	m_pEtherCat = NULL;
+	//m_pEtherCat = NULL;
 }
 
 CDlgMotion::~CDlgMotion()
@@ -57,15 +57,24 @@ BOOL CDlgMotion::OnInitDialog()
 void CDlgMotion::Init()
 {
 	//LoadParam();
-	if (!m_pEtherCat)
-	{
-		//m_pEtherCat = new CEtherCat();
-		//m_pEtherCat->InitNmcBoard();
-	}
+	//if (!m_pEtherCat)
+	//{
+	//	m_pEtherCat = new CEtherCat(this);
+	//	if (!m_pEtherCat->InitBoard())
+	//	{
+	//		AfxMessageBox(_T("XMP 보드 초기화 실패, 다시 시작하세요.!!!"));
+	//		PostMessage(WM_CLOSE);
+	//	}
+	//}
 }
 
 void CDlgMotion::Close()
 {
+	//if (m_pEtherCat)
+	//{
+	//	delete m_pEtherCat;
+	//	m_pEtherCat = NULL;
+	//}
 }
 
 //void CDlgMotion::LoadParam()

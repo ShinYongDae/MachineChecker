@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Devices/EtherCat.h"
+//#include "Devices/EtherCat.h"
 
 enum OnOffAction { OFF, ON };
 
@@ -10,7 +10,7 @@ class CDlgMotionEtherCat : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgMotionEtherCat)
 
-	CEtherCat *m_pEtherCat;
+	//CEtherCat *m_pEtherCat;
 
 	void Init();
 	void Close();

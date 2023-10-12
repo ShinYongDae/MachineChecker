@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Devices/EtherCat.h"
+//#include "Devices/EtherCat.h"
+
 
 
 // CDlgMotion 대화 상자입니다.
@@ -9,7 +10,7 @@ class CDlgMotion : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgMotion)
 
-	CEtherCat *m_pEtherCat;
+	//CEtherCat *m_pEtherCat;
 
 	void Init();
 	void Close();
